@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\GuestToursWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +65,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\ImagePathConverter.cs" />
+    <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Views\GuestToursWindow.xaml.cs">
+      <DependentUpon>GuestToursWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -99,10 +108,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\CreateDatabase.sql" />
+    <Content Include="Images\no_image.png" />
+    <Resource Include="Images\amsterdam_tour.png" />
+    <Resource Include="Images\austria_tour.png" />
+    <Resource Include="Images\czech_tour.png" />
+    <Resource Include="Images\france_tour.png" />
+    <Resource Include="Images\germany_tour.png" />
+    <Resource Include="Images\italy_tour.png" />
+    <Resource Include="Images\poland_tour.png" />
+    <Resource Include="Images\spain_tour.png" />
+    <Resource Include="Images\sweden_tour.png" />
+    <Resource Include="Images\vienna_tour.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

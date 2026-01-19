@@ -3,27 +3,55 @@
   "WorkspaceRootPath": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\globustravelmanager\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\views\\guesttourswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\views\\guesttourswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\obj\\Debug\\App.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GlobusTravelManager\\obj\\Debug\\App.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\converters\\imagepathconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\converters\\imagepathconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\views\\guesttourswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\views\\guesttourswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\database\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\database\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\globustravelmanager\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\globustravelmanager\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\models\\tour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\globustravelmanager\\models\\tour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\models\\tour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|e:\\globustravelmanager\\source\\globustravelmanager\\globustravelmanager\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\globustravelmanager\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A59C6301-DEF8-45D8-B210-4E2256E52B11}|GlobusTravelManager\\GlobusTravelManager.csproj|solutionrelative:globustravelmanager\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,23 +62,126 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "App.g.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\obj\\Debug\\App.g.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\obj\\Debug\\App.g.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\obj\\Debug\\App.g.cs",
+              "RelativeToolTip": "GlobusTravelManager\\obj\\Debug\\App.g.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:42:19.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.config",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\App.config",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\App.config",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\App.config",
+              "RelativeToolTip": "GlobusTravelManager\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-01-19T04:37:20.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ImagePathConverter.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Converters\\ImagePathConverter.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Converters\\ImagePathConverter.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Converters\\ImagePathConverter.cs",
+              "RelativeToolTip": "GlobusTravelManager\\Converters\\ImagePathConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:37:06.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "App.xaml",
               "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\App.xaml",
               "RelativeDocumentMoniker": "GlobusTravelManager\\App.xaml",
-              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\App.xaml*",
-              "RelativeToolTip": "GlobusTravelManager\\App.xaml*",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\App.xaml",
+              "RelativeToolTip": "GlobusTravelManager\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-01-19T04:31:35.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "GuestToursWindow.xaml.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\GuestToursWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Views\\GuestToursWindow.xaml.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\GuestToursWindow.xaml.cs",
+              "RelativeToolTip": "GlobusTravelManager\\Views\\GuestToursWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:36:32.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GuestToursWindow.xaml",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\GuestToursWindow.xaml",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Views\\GuestToursWindow.xaml",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\GuestToursWindow.xaml",
+              "RelativeToolTip": "GlobusTravelManager\\Views\\GuestToursWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-19T04:36:06.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Session.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Models\\Session.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Models\\Session.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Models\\Session.cs",
+              "RelativeToolTip": "GlobusTravelManager\\Models\\Session.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:35:40.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Database\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Database\\DatabaseHelper.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Database\\DatabaseHelper.cs",
+              "RelativeToolTip": "GlobusTravelManager\\Database\\DatabaseHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:34:37.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
+              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T04:25:58.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Booking.cs",
               "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Models\\Booking.cs",
               "RelativeDocumentMoniker": "GlobusTravelManager\\Models\\Booking.cs",
@@ -58,12 +189,11 @@
               "RelativeToolTip": "GlobusTravelManager\\Models\\Booking.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T04:30:25.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-19T04:30:25.418Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "GlobusTravelManager\\Views\\LoginWindow.xaml",
@@ -75,20 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "GlobusTravelManager\\Views\\LoginWindow.xaml.cs",
-              "ToolTip": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Views\\LoginWindow.xaml.cs*",
-              "RelativeToolTip": "GlobusTravelManager\\Views\\LoginWindow.xaml.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAwwBMAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T04:25:58.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "Tour.cs",
               "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Models\\Tour.cs",
               "RelativeDocumentMoniker": "GlobusTravelManager\\Models\\Tour.cs",
@@ -96,12 +213,11 @@
               "RelativeToolTip": "GlobusTravelManager\\Models\\Tour.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T04:30:00.057Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-19T04:30:00.057Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "User.cs",
               "DocumentMoniker": "E:\\GlobusTravelManager\\Source\\GlobusTravelManager\\GlobusTravelManager\\Models\\User.cs",
               "RelativeDocumentMoniker": "GlobusTravelManager\\Models\\User.cs",
@@ -109,8 +225,7 @@
               "RelativeToolTip": "GlobusTravelManager\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T04:29:34.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-19T04:29:34.429Z"
             }
           ]
         }

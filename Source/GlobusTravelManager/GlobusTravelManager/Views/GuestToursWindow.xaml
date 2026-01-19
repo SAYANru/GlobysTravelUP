@@ -1,0 +1,99 @@
+﻿<Window x:Class="GlobusTravelManager.Views.GuestToursWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Доступные туры - Гостевой режим" 
+        Height="700" Width="1000"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Background="#0078D7" Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="🌍 ДОСТУПНЫЕ ТУРЫ (Гостевой режим)" 
+                           FontSize="20" FontWeight="Bold" Foreground="White"/>
+                <Button Content="Войти в систему" 
+                        Margin="20,0,0,0" Padding="10,5"
+                        Background="White" Foreground="#0078D7"
+                        FontWeight="Bold"
+                        Click="BtnLogin_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Список туров -->
+        <DataGrid x:Name="dgTours" Grid.Row="1" Margin="10"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  CanUserAddRows="False" SelectionMode="Single">
+
+            <DataGrid.Columns>
+                <!-- Фото -->
+                <DataGridTemplateColumn Header="Фото" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding PhotoFileName, Converter={StaticResource ImagePathConverter}}"
+                                   Width="70" Height="50" Stretch="Uniform"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Тур" Binding="{Binding Name}" Width="250"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding CountryName}" Width="100"/>
+                <DataGridTextColumn Header="Дней" Binding="{Binding DurationDays}" Width="60"/>
+                <DataGridTextColumn Header="Дата начала" 
+                                    Binding="{Binding StartDate, StringFormat=dd.MM.yyyy}" 
+                                    Width="100"/>
+                <DataGridTextColumn Header="Стоимость" 
+                                    Binding="{Binding Price, StringFormat=N0 руб.}" 
+                                    Width="110"/>
+                <DataGridTextColumn Header="Тип автобуса" Binding="{Binding BusTypeName}" Width="120"/>
+                <DataGridTextColumn Header="Мест" Binding="{Binding Capacity}" Width="60"/>
+                <DataGridTextColumn Header="Свободно" Binding="{Binding AvailableSeats}" Width="70"/>
+            </DataGrid.Columns>
+
+            <!-- Стили для подсветки -->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <!-- Скидка >15% -->
+                        <DataTrigger Binding="{Binding IsSpecialOffer}" Value="True">
+                            <Setter Property="Background" Value="#FFD700"/>
+                            <!-- Золотистый -->
+                        </DataTrigger>
+
+                        <!-- Мало мест (<10%) -->
+                        <DataTrigger Binding="{Binding IsFewSeats}" Value="True">
+                            <Setter Property="Background" Value="#FFB6C1"/>
+                            <!-- Светло-розовый -->
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <!-- Жирный шрифт для туров, которые скоро начнутся -->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsStartingSoon}" Value="True">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+
+        <!-- Статус -->
+        <StatusBar Grid.Row="2" Background="#F0F0F0">
+            <StatusBarItem>
+                <TextBlock x:Name="tbStatus" Text="Загрузка..."/>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="Globe Travel Manager - Гостевой доступ"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Collections.Specialized.BitVector32;
 
 namespace GlobusTravelManager
 {
@@ -24,24 +25,39 @@ namespace GlobusTravelManager
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string login = txtLogin.Text;
+            string login = txtLogin.Text.Trim();
             string password = txtPassword.Password;
 
-            // TODO: Проверка в БД
-            // Временная заглушка
-            if (login == "admin@globus.ru" && password == "7f8d2a")
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Вход выполнен!", "Успешно",
+                MessageBox.Show("Введите логин и пароль", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Тестируем подключение
+            if (!Database.DatabaseHelper.TestConnection())
+                return;
+
+            // Авторизация
+            var user = Database.DatabaseHelper.AuthenticateUser(login, password);
+
+            if (user != null)
+            {
+                // Сохраняем пользователя в статическом классе
+                Session.CurrentUser = user;
+
+                MessageBox.Show($"Добро пожаловать, {user.FullName}!", "Успешный вход",
                     MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Открываем главное окно
+                // Открываем главное окно менеджера/админа
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль", "Ошибка",
+                MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

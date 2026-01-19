@@ -9,5 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/createdatabase.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/no_image.png")]
 
 
