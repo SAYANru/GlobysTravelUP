@@ -1,0 +1,10 @@
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager.csproj.AssemblyReference.cache
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\Views\LoginWindow.baml
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\Views\LoginWindow.g.cs
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\App.g.cs
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager_Content.g.cs
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager_MarkupCompile.cache
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager.g.resources
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager.Properties.Resources.resources
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager.csproj.GenerateResource.cache
+E:\GlobusTravelManager\Source\GlobusTravelManager\GlobusTravelManager\obj\Debug\GlobusTravelManager.csproj.CoreCompileInputs.cache
