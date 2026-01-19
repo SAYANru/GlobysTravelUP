@@ -1,4 +1,4 @@
-# Globe Travel Manager
+# Globus Travel Manager
 
 Система управления туристическим агентством "Глобус".
 
