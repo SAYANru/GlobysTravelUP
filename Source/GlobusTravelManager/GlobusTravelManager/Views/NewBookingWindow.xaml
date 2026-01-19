@@ -1,0 +1,78 @@
+﻿<Window x:Class="GlobusTravelManager.Views.NewBookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Новая заявка" Height="500" Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Label Grid.Row="0" Content="📝 Создание новой заявки" 
+               FontSize="18" FontWeight="Bold" 
+               Margin="0,0,0,20"/>
+
+        <!-- Форма -->
+        <StackPanel Grid.Row="1" Spacing="10">
+            <!-- Клиент -->
+            <StackPanel>
+                <Label Content="Клиент:" FontWeight="SemiBold"/>
+                <ComboBox x:Name="cmbClient" Height="30" 
+                          DisplayMemberPath="FullName"/>
+            </StackPanel>
+
+            <!-- Тур -->
+            <StackPanel>
+                <Label Content="Тур:" FontWeight="SemiBold"/>
+                <ComboBox x:Name="cmbTour" Height="30" 
+                          DisplayMemberPath="Name"
+                          SelectionChanged="CmbTour_SelectionChanged"/>
+            </StackPanel>
+
+            <!-- Информация о туре -->
+            <Border BorderBrush="#DDD" BorderThickness="1" Background="#F9F9F9" 
+                    Padding="10" Visibility="Collapsed" x:Name="tourInfoPanel">
+                <StackPanel>
+                    <TextBlock x:Name="tbTourInfo" TextWrapping="Wrap"/>
+                    <TextBlock x:Name="tbTourSeats" Margin="0,5,0,0" FontWeight="Bold"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Количество человек -->
+            <StackPanel>
+                <Label Content="Количество человек:" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtPeopleCount" Height="30" 
+                         Text="1" TextChanged="TxtPeopleCount_TextChanged"/>
+            </StackPanel>
+
+            <!-- Сумма -->
+            <StackPanel>
+                <Label Content="Общая стоимость:" FontWeight="SemiBold"/>
+                <TextBlock x:Name="tbTotalPrice" FontSize="16" FontWeight="Bold" 
+                           Foreground="Green"/>
+            </StackPanel>
+
+            <!-- Комментарий -->
+            <StackPanel>
+                <Label Content="Комментарий (необязательно):"/>
+                <TextBox x:Name="txtComment" Height="60" 
+                         AcceptsReturn="True" TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Отмена" Width="100" Height="35" 
+                    Click="BtnCancel_Click"/>
+            <Button Content="Создать" Width="100" Height="35" Margin="10,0,0,0"
+                    Background="#4CAF50" Foreground="White"
+                    FontWeight="Bold" Click="BtnCreate_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

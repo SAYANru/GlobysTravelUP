@@ -55,12 +55,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\StatusColorConverter.cs" />
+    <Compile Include="Views\BookingDetailsWindow.xaml.cs">
+      <DependentUpon>BookingDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookingsPage.xaml.cs">
+      <DependentUpon>BookingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewBookingWindow.xaml.cs">
+      <DependentUpon>NewBookingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToursPage.xaml.cs">
       <DependentUpon>ToursPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\BookingDetailsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BookingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,6 +105,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewBookingWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ToursPage.xaml">

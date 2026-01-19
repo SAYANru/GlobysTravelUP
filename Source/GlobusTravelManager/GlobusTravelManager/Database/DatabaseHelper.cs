@@ -177,5 +177,217 @@ namespace GlobusTravelManager.Database
                 return false;
             }
         }
+        public static List<Booking> GetAllBookings()
+        {
+            var bookings = new List<Booking>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT b.BookingID, t.TourName, u.FullName, b.BookingDate, 
+                       b.Status, b.PeopleCount, b.TotalPrice, b.Comment
+                FROM Bookings b
+                JOIN Tours t ON b.TourID = t.TourID
+                JOIN Users u ON b.UserID = u.UserID
+                ORDER BY b.BookingDate DESC";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        bookings.Add(new Booking
+                        {
+                            Id = reader.GetInt32(0),
+                            TourName = reader.GetString(1),
+                            ClientName = reader.GetString(2),
+                            BookingDate = reader.GetDateTime(3),
+                            Status = reader.GetString(4),
+                            PeopleCount = reader.GetInt32(5),
+                            TotalPrice = reader.GetDecimal(6),
+                            Comment = reader.IsDBNull(7) ? "" : reader.GetString(7)
+                        });
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки заявок: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return bookings;
+        }
+
+        public static List<string> GetBookingStatuses()
+        {
+            return new List<string>
+    {
+        "Все",
+        "Новая",
+        "Подтверждена",
+        "Отменена",
+        "В обработке"
+    };
+        }
+
+        public static bool UpdateBookingStatus(int bookingId, string newStatus)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Проверяем, можно ли подтвердить заявку
+                    if (newStatus == "Подтверждена")
+                    {
+                        // Получаем информацию о туре
+                        string checkQuery = @"
+                    SELECT t.AvailableSeats, b.PeopleCount
+                    FROM Bookings b
+                    JOIN Tours t ON b.TourID = t.TourID
+                    WHERE b.BookingID = @BookingID";
+
+                        SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                        checkCmd.Parameters.AddWithValue("@BookingID", bookingId);
+
+                        SqlDataReader reader = checkCmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            int availableSeats = reader.GetInt32(0);
+                            int peopleCount = reader.GetInt32(1);
+
+                            if (availableSeats < peopleCount)
+                            {
+                                reader.Close();
+                                MessageBox.Show($"Недостаточно свободных мест! Доступно: {availableSeats}, требуется: {peopleCount}",
+                                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return false;
+                            }
+                        }
+                        reader.Close();
+                    }
+
+                    // Обновляем статус
+                    string updateQuery = "UPDATE Bookings SET Status = @Status WHERE BookingID = @BookingID";
+                    SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+                    updateCmd.Parameters.AddWithValue("@Status", newStatus);
+                    updateCmd.Parameters.AddWithValue("@BookingID", bookingId);
+
+                    int result = updateCmd.ExecuteNonQuery();
+
+                    // Если подтверждаем заявку, уменьшаем количество свободных мест
+                    if (newStatus == "Подтверждена" && result > 0)
+                    {
+                        string updateSeatsQuery = @"
+                    UPDATE Tours 
+                    SET AvailableSeats = AvailableSeats - (
+                        SELECT PeopleCount FROM Bookings WHERE BookingID = @BookingID
+                    )
+                    WHERE TourID = (
+                        SELECT TourID FROM Bookings WHERE BookingID = @BookingID
+                    )";
+
+                        SqlCommand updateSeatsCmd = new SqlCommand(updateSeatsQuery, conn);
+                        updateSeatsCmd.Parameters.AddWithValue("@BookingID", bookingId);
+                        updateSeatsCmd.ExecuteNonQuery();
+                    }
+
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления статуса: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        public static List<User> GetAllClients()
+        {
+            var clients = new List<User>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT UserID, FullName, Login FROM Users WHERE Role = 'Авторизированный клиент' ORDER BY FullName";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        clients.Add(new User
+                        {
+                            Id = reader.GetInt32(0),
+                            FullName = reader.GetString(1),
+                            Login = reader.GetString(2)
+                        });
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки клиентов: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return clients;
+        }
+
+        public static bool CreateBooking(int tourId, int userId, int peopleCount, decimal totalPrice, string comment)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Проверяем доступность мест
+                    string checkQuery = "SELECT AvailableSeats FROM Tours WHERE TourID = @TourID";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@TourID", tourId);
+
+                    int availableSeats = (int)checkCmd.ExecuteScalar();
+
+                    if (availableSeats < peopleCount)
+                    {
+                        MessageBox.Show($"Недостаточно свободных мест! Доступно: {availableSeats}, требуется: {peopleCount}",
+                            "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+
+                    // Создаем заявку
+                    string insertQuery = @"
+                INSERT INTO Bookings (TourID, UserID, PeopleCount, TotalPrice, Comment, Status)
+                VALUES (@TourID, @UserID, @PeopleCount, @TotalPrice, @Comment, 'Новая')";
+
+                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                    insertCmd.Parameters.AddWithValue("@TourID", tourId);
+                    insertCmd.Parameters.AddWithValue("@UserID", userId);
+                    insertCmd.Parameters.AddWithValue("@PeopleCount", peopleCount);
+                    insertCmd.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                    insertCmd.Parameters.AddWithValue("@Comment", string.IsNullOrEmpty(comment) ? DBNull.Value : (object)comment);
+
+                    int result = insertCmd.ExecuteNonQuery();
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка создания заявки: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
     }
 }
