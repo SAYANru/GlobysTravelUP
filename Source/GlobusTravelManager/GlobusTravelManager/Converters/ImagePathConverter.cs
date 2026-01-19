@@ -10,21 +10,24 @@ namespace GlobusTravelManager.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string fileName = value as string;
-            if (string.IsNullOrEmpty(fileName))
+
+            // Если файла нет или он пустой - возвращаем заглушку
+            if (string.IsNullOrWhiteSpace(fileName))
             {
-                // Заглушка если фото нет
-                return new BitmapImage(new Uri("pack://application:,,,/Images/no_image.png"));
+                // Можно создать простую заглушку или вернуть null
+                return null;
             }
 
             try
             {
-                // Пытаемся загрузить фото из папки Images
-                return new BitmapImage(new Uri($"pack://application:,,,/Images/{fileName}"));
+                // Пробуем загрузить изображение из папки Images
+                var uri = new Uri($"pack://application:,,,/Images/{fileName}", UriKind.Absolute);
+                return new BitmapImage(uri);
             }
             catch
             {
-                // Если файл не найден - заглушка
-                return new BitmapImage(new Uri("pack://application:,,,/Images/no_image.png"));
+                // Если файл не найден - возвращаем null
+                return null;
             }
         }
 

@@ -2,81 +2,80 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Детали заявки" Height="400" Width="500"
-        WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize">
+        WindowStartupLocation="CenterOwner">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
 
-        <!-- Заголовок -->
-        <Label Grid.Row="0" Content="📄 Детали заявки" 
-               FontSize="18" FontWeight="Bold" 
+		<!-- Заголовок -->
+		<Label Grid.Row="0" Content="📄 Детали заявки"
+               FontSize="18" FontWeight="Bold"
                Margin="0,0,0,20"/>
 
-        <!-- Информация -->
-        <StackPanel Grid.Row="1" Spacing="10">
-            <!-- Номер заявки -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Номер заявки:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbId" VerticalAlignment="Center"/>
-            </StackPanel>
+		<!-- Информация -->
+		<StackPanel Grid.Row="1">
+			<!-- Номер заявки -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Номер заявки:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbId" VerticalAlignment="Center"/>
+			</StackPanel>
 
-            <!-- Клиент -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Клиент:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbClient" VerticalAlignment="Center"/>
-            </StackPanel>
+			<!-- Клиент -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Клиент:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbClient" VerticalAlignment="Center"/>
+			</StackPanel>
 
-            <!-- Тур -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Тур:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbTour" VerticalAlignment="Center" TextWrapping="Wrap"/>
-            </StackPanel>
+			<!-- Тур -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Тур:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbTour" VerticalAlignment="Center" TextWrapping="Wrap"/>
+			</StackPanel>
 
-            <!-- Дата бронирования -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Дата бронирования:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbBookingDate" VerticalAlignment="Center"/>
-            </StackPanel>
+			<!-- Дата бронирования -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Дата бронирования:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbBookingDate" VerticalAlignment="Center"/>
+			</StackPanel>
 
-            <!-- Статус -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Статус:" FontWeight="Bold" Width="150"/>
-                <Border x:Name="statusBorder" CornerRadius="3" Padding="5,2" Margin="0,2,0,0">
-                    <TextBlock x:Name="tbStatus" FontWeight="SemiBold" Foreground="White"/>
-                </Border>
-            </StackPanel>
+			<!-- Статус -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Статус:" FontWeight="Bold" Width="150"/>
+				<Border x:Name="statusBorder" CornerRadius="3" Padding="5,2" Margin="0,2,0,0">
+					<TextBlock x:Name="tbStatus" FontWeight="SemiBold" Foreground="White"/>
+				</Border>
+			</StackPanel>
 
-            <!-- Количество человек -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Количество человек:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbPeopleCount" VerticalAlignment="Center"/>
-            </StackPanel>
+			<!-- Количество человек -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Количество человек:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbPeopleCount" VerticalAlignment="Center"/>
+			</StackPanel>
 
-            <!-- Сумма -->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Общая стоимость:" FontWeight="Bold" Width="150"/>
-                <TextBlock x:Name="tbTotalPrice" VerticalAlignment="Center" 
+			<!-- Сумма -->
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+				<Label Content="Общая стоимость:" FontWeight="Bold" Width="150"/>
+				<TextBlock x:Name="tbTotalPrice" VerticalAlignment="Center"
                            FontSize="14" FontWeight="Bold" Foreground="Green"/>
-            </StackPanel>
+			</StackPanel>
 
-            <!-- Комментарий -->
-            <StackPanel>
-                <Label Content="Комментарий:" FontWeight="Bold"/>
-                <Border BorderBrush="#DDD" BorderThickness="1" Background="#F9F9F9" 
-                        Padding="10" Margin="0,5,0,0">
-                    <TextBlock x:Name="tbComment" TextWrapping="Wrap"/>
-                </Border>
-            </StackPanel>
-        </StackPanel>
+			<!-- Комментарий -->
+			<StackPanel>
+				<Label Content="Комментарий:" FontWeight="Bold" Margin="0,0,0,5"/>
+				<Border BorderBrush="#DDD" BorderThickness="1" Background="#F9F9F9"
+                        Padding="10">
+					<TextBlock x:Name="tbComment" TextWrapping="Wrap"/>
+				</Border>
+			</StackPanel>
+		</StackPanel>
 
-        <!-- Кнопка закрытия -->
-        <Button Grid.Row="2" Content="Закрыть" Width="100" Height="35" 
+		<!-- Кнопка закрытия -->
+		<Button Grid.Row="2" Content="Закрыть" Width="100" Height="35"
                 HorizontalAlignment="Right" Margin="0,20,0,0"
                 Click="BtnClose_Click"/>
-    </Grid>
+	</Grid>
 </Window>

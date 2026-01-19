@@ -1,0 +1,53 @@
+﻿<Window x:Class="GlobusTravelManager.Views.ClientEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование клиента" Height="400" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Label Grid.Row="0" Content="👤 Редактирование клиента" 
+               FontSize="16" FontWeight="Bold" 
+               Margin="0,0,0,20"/>
+
+        <!-- Форма -->
+        <StackPanel Grid.Row="1" Margin="10">
+            <StackPanel>
+                <Label Content="ФИО:" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtFullName" Height="30"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Логин (email):" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtLogin" Height="30"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Пароль:" FontWeight="SemiBold"/>
+                <PasswordBox x:Name="txtPassword" Height="30"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Подтверждение пароля:" FontWeight="SemiBold"/>
+                <PasswordBox x:Name="txtPasswordConfirm" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Отмена" Width="100" Height="35" 
+                    Click="BtnCancel_Click"/>
+            <Button Content="Сохранить" Width="100" Height="35" Margin="10,0,0,0"
+                    Background="#4CAF50" Foreground="White"
+                    FontWeight="Bold" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

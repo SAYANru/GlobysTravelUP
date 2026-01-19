@@ -9,7 +9,7 @@ namespace GlobusTravelManager.Database
     public static class DatabaseHelper
     {
         // Строка подключения - МЕНЯЙ ЕСЛИ НУЖНО
-        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GlobeTravelDB;Integrated Security=True;";
+        private static string connectionString = @"Data Source=KYARO;Initial Catalog=GlobusTravelDB;Integrated Security=True;";
 
         public static bool TestConnection()
         {
@@ -388,6 +388,238 @@ namespace GlobusTravelManager.Database
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+        }
+        // Автобусы
+        public static List<BusType> GetAllBusTypes()
+        {
+            var busTypes = new List<BusType>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT BusTypeID, TypeName, Description, Capacity FROM BusTypes ORDER BY TypeName";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        busTypes.Add(new BusType
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Description = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                            Capacity = reader.GetInt32(3)
+                        });
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки типов автобусов: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return busTypes;
+        }
+
+        public static bool AddBusType(string name, string description, int capacity)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "INSERT INTO BusTypes (TypeName, Description, Capacity) VALUES (@Name, @Description, @Capacity)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Description", string.IsNullOrEmpty(description) ? DBNull.Value : (object)description);
+                    cmd.Parameters.AddWithValue("@Capacity", capacity);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка добавления типа автобуса: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        public static bool UpdateBusType(int id, string name, string description, int capacity)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "UPDATE BusTypes SET TypeName = @Name, Description = @Description, Capacity = @Capacity WHERE BusTypeID = @ID";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Description", string.IsNullOrEmpty(description) ? DBNull.Value : (object)description);
+                    cmd.Parameters.AddWithValue("@Capacity", capacity);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления типа автобуса: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        public static bool DeleteBusType(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Проверяем, используется ли тип автобуса в турах
+                    string checkQuery = "SELECT COUNT(*) FROM Tours WHERE BusTypeID = @ID";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@ID", id);
+
+                    int usageCount = (int)checkCmd.ExecuteScalar();
+                    if (usageCount > 0)
+                    {
+                        MessageBox.Show("Нельзя удалить тип автобуса, который используется в турах", "Ошибка",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+
+                    string query = "DELETE FROM BusTypes WHERE BusTypeID = @ID";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления типа автобуса: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        // Клиенты
+        public static bool UpdateClient(int id, string fullName, string login, string password)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "UPDATE Users SET FullName = @FullName, Login = @Login, Password = @Password WHERE UserID = @ID AND Role = 'Авторизированный клиент'";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@FullName", fullName);
+                    cmd.Parameters.AddWithValue("@Login", login);
+                    cmd.Parameters.AddWithValue("@Password", password);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления клиента: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        public static bool DeleteClient(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Проверяем, есть ли заявки у клиента
+                    string checkQuery = "SELECT COUNT(*) FROM Bookings WHERE UserID = @ID";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@ID", id);
+
+                    int bookingCount = (int)checkCmd.ExecuteScalar();
+                    if (bookingCount > 0)
+                    {
+                        MessageBox.Show("Нельзя удалить клиента, у которого есть заявки", "Ошибка",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+
+                    string query = "DELETE FROM Users WHERE UserID = @ID AND Role = 'Авторизированный клиент'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления клиента: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        // Статистика
+        public static Dictionary<string, int> GetStatistics()
+        {
+            var stats = new Dictionary<string, int>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Количество туров
+                    string toursQuery = "SELECT COUNT(*) FROM Tours";
+                    SqlCommand toursCmd = new SqlCommand(toursQuery, conn);
+                    stats["Tours"] = (int)toursCmd.ExecuteScalar();
+
+                    // Количество заявок
+                    string bookingsQuery = "SELECT COUNT(*) FROM Bookings";
+                    SqlCommand bookingsCmd = new SqlCommand(bookingsQuery, conn);
+                    stats["Bookings"] = (int)bookingsCmd.ExecuteScalar();
+
+                    // Количество клиентов
+                    string clientsQuery = "SELECT COUNT(*) FROM Users WHERE Role = 'Авторизированный клиент'";
+                    SqlCommand clientsCmd = new SqlCommand(clientsQuery, conn);
+                    stats["Clients"] = (int)clientsCmd.ExecuteScalar();
+
+                    // Доход (сумма подтвержденных заявок)
+                    string revenueQuery = "SELECT ISNULL(SUM(TotalPrice), 0) FROM Bookings WHERE Status = 'Подтверждена'";
+                    SqlCommand revenueCmd = new SqlCommand(revenueQuery, conn);
+                    stats["Revenue"] = (int)revenueCmd.ExecuteScalar();
+
+                    // Свободные места
+                    string seatsQuery = "SELECT ISNULL(SUM(AvailableSeats), 0) FROM Tours";
+                    SqlCommand seatsCmd = new SqlCommand(seatsQuery, conn);
+                    stats["AvailableSeats"] = (int)seatsCmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка получения статистики: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return stats;
         }
     }
 }

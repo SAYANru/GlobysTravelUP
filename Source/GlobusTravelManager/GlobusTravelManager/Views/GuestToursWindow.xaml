@@ -15,8 +15,17 @@
         <!-- Заголовок -->
         <Border Grid.Row="0" Background="#0078D7" Padding="10">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="🌍 ДОСТУПНЫЕ ТУРЫ (Гостевой режим)" 
-                           FontSize="20" FontWeight="Bold" Foreground="White"/>
+				<Image Source="pack://application:,,,/icon.png"
+                           Width="32" Height="32"
+                           Margin="0,0,15,0"/>
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock Text="GLOBUS TRAVEL"
+							   FontSize="18" FontWeight="Bold"
+							   Foreground="White"/>
+					<TextBlock Text="Доступные туры"
+							   FontSize="14" FontWeight="SemiBold"
+							   Foreground="White"/>
+				</StackPanel>
                 <Button Content="Войти в систему" 
                         Margin="20,0,0,0" Padding="10,5"
                         Background="White" Foreground="#0078D7"

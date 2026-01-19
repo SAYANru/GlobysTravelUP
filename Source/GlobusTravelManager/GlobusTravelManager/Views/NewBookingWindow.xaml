@@ -18,7 +18,7 @@
                Margin="0,0,0,20"/>
 
         <!-- Форма -->
-        <StackPanel Grid.Row="1" Spacing="10">
+        <StackPanel Grid.Row="1" Margin="10">
             <!-- Клиент -->
             <StackPanel>
                 <Label Content="Клиент:" FontWeight="SemiBold"/>
