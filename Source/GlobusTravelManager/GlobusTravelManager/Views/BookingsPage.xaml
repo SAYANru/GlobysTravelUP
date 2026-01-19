@@ -1,0 +1,11 @@
+﻿<Page x:Class="GlobusTravelManager.Views.BookingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Заявки">
+
+    <Grid>
+        <Label Content="📋 Управление заявками (будет реализовано в следующей фазе)" 
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="16"/>
+    </Grid>
+</Page>

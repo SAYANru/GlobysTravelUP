@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GlobusTravelManager.Models;
+using GlobusTravelManager.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,7 +66,7 @@ namespace GlobusTravelManager
 
         private void BtnGuest_Click(object sender, RoutedEventArgs e)
         {
-            // Открываем окно для гостя
+            Session.CurrentUser = null; // Гостевой режим
             GuestToursWindow guestWindow = new GuestToursWindow();
             guestWindow.Show();
             this.Close();

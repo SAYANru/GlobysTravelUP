@@ -110,5 +110,72 @@ namespace GlobusTravelManager.Database
 
             return tours;
         }
+        public static List<string> GetAllCountries()
+        {
+            var countries = new List<string>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT CountryName FROM Countries ORDER BY CountryName";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        countries.Add(reader.GetString(0));
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки стран: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return countries;
+        }
+
+        public static bool DeleteTour(int tourId)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Проверяем, есть ли заявки на этот тур
+                    string checkQuery = "SELECT COUNT(*) FROM Bookings WHERE TourID = @TourID";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@TourID", tourId);
+                    int bookingCount = (int)checkCmd.ExecuteScalar();
+
+                    if (bookingCount > 0)
+                    {
+                        MessageBox.Show("Нельзя удалить тур, на который есть заявки", "Ошибка",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+
+                    // Удаляем тур
+                    string deleteQuery = "DELETE FROM Tours WHERE TourID = @TourID";
+                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                    deleteCmd.Parameters.AddWithValue("@TourID", tourId);
+
+                    int result = deleteCmd.ExecuteNonQuery();
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления тура: {ex.Message}", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
     }
 }

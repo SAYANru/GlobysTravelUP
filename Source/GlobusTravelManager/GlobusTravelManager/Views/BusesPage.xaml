@@ -1,0 +1,11 @@
+﻿<Page x:Class="GlobusTravelManager.Views.BusesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Автобусы">
+
+    <Grid>
+        <Label Content="🚌 Управление автобусами (будет реализовано в следующей фазе)" 
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="16"/>
+    </Grid>
+</Page>
